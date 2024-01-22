@@ -271,11 +271,6 @@ def handle_post_processing(context: ZMakeContext):
             command.extend(["-o", str(file), str(file)])
             run_ext_tool(command, context, "UglifyJS")
 
-        # Inject comment
-        with open(file, "r", encoding="utf8") as f:
-            content = utils.get_app_asset("comment.js") + "\n" + f.read()
-        with open(file, "w", encoding="utf8") as f:
-            f.write(content)
         i += 1
 
     context.logger.info(f"  Post-processed {i} files")

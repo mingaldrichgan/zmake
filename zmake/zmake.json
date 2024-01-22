@@ -1,5 +1,5 @@
 {
-  "def_format": "TGA-P",
+  "def_format": "TGA-RLP",
   "auto_rgba": true,
   "target_dir_override": "",
 
@@ -8,20 +8,20 @@
 
   "overrides": {},
 
-  "esbuild": false,
-  "esbuild_params": "--bundle",
+  "esbuild": true,
+  "esbuild_params": "--bundle --minify --sourcemap",
 
   "with_uglifyjs": false,
-  "uglifyjs_params": "",
+  "uglifyjs_params": "--compress --mangle --source-map includeSources",
 
-  "with_zepp_preview": false,
-  "add_preview_asset": false,
+  "with_zepp_preview": true,
+  "add_preview_asset": true,
 
   "with_adb": false,
-  "adb_path": "/storage/emulated/0/Android/data/com.xiaomi.hm.health/files/watch_skin_local",
+  "adb_path": "/storage/emulated/0/Android/Download",
 
-  "pre_build_script": "",
-  "post_build_script": "",
+  "pre_build_script": "~/github/zmake/scripts/pre_build.sh",
+  "post_build_script": "~/github/zmake/scripts/post_build.sh",
 
   "common_files": [
     "README.txt", 
@@ -32,7 +32,8 @@
   "ignore_files": [
     ".gitignore", 
     ".DS_Store", 
-    "Thumbs.db"
+    "Thumbs.db",
+    "index.js.map"
   ],
 
   "with_zeus_compat": false,
